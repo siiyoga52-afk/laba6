@@ -2,35 +2,34 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
+// Настройка MainButton
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
+tg.MainButton.setText("📖 Получить описание фильма");
+tg.MainButton.hide();
 
-let item = "";
+let selectedItem = "";
 
-let btn1 = document.getElementById("btn1");
-let btn2 = document.getElementById("btn2");
-
-btn1.addEventListener("click", function () {
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вывести информацию по фильму Хатико");
-		item = "1";
-		tg.MainButton.show();
-	}
+// Обработчики для кнопок фильмов
+document.querySelectorAll('.movie-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        // Снимаем выделение со всех кнопок
+        document.querySelectorAll('.movie-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
+        // Выделяем текущую кнопку
+        this.classList.add('selected');
+        selectedItem = this.getAttribute('data-item');
+        
+        // Показываем MainButton
+        tg.MainButton.show();
+    });
 });
 
-btn2.addEventListener("click", function () {
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
-		tg.MainButton.setText("Вывести информацию по фильму Титаник");
-		item = "2";
-		tg.MainButton.show();
-	}
-});
-Telegram.WebApp.onEvent("mainButtonClicked", function () {
-	tg.sendData(item);
+// Обработчик нажатия на MainButton
+tg.MainButton.onClick(function() {
+    if (selectedItem) {
+        tg.sendData(selectedItem);
+    }
 });
