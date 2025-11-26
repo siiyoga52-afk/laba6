@@ -15,7 +15,7 @@ btn1.addEventListener("click", function () {
 		tg.MainButton.hide();
 	}
 	else {
-		tg.MainButton.setText("Вывести информацию по овену");
+		tg.MainButton.setText("Вывести информацию по фильму Хатико");
 		item = "1";
 		tg.MainButton.show();
 	}
@@ -26,7 +26,7 @@ btn2.addEventListener("click", function () {
 		tg.MainButton.hide();
 	}
 	else {
-		tg.MainButton.setText("Вывести информацию по тельцу");
+		tg.MainButton.setText("Вывести информацию по фильму Титаник");
 		item = "2";
 		tg.MainButton.show();
 	}
