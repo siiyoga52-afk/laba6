@@ -2,73 +2,58 @@ body {
     margin: 0;
     padding: 20px;
     font-family: Arial, sans-serif;
-    font-size: 18px;
-    color: var(--tg-theme-text-color, #000000);
-    background: var(--tg-theme-bg-color, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    color: white;
 }
 
 .container {
-    max-width: 390px;
+    max-width: 400px;
     margin: 0 auto;
     text-align: center;
 }
 
 h1 {
-    color: var(--tg-theme-text-color, white);
-    margin-bottom: 30px;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.item {
-    text-align: center;
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .movie-btn {
-    width: 100%;
+    padding: 20px;
     border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-}
-
-.btn {
-    display: inline-block;
-    padding: 20px 15px;
-    border: none;
-    background: var(--tg-theme-button-color, rgb(248, 168, 24));
     border-radius: 15px;
-    color: var(--tg-theme-button-text-color, #fff);
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: all 0.3s;
-    width: 100%;
-    font-size: 16px;
+    background: white;
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.btn:hover {
-    background: var(--tg-theme-secondary-bg-color, lightgreen);
+.movie-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* Стили для конкретных фильмов */
-.hachiko .btn {
-    border-left: 5px solid #ff6b6b;
-}
-
-.titanic .btn {
-    border-left: 5px solid #4ecdc4;
-}
-
-/* Стиль для выбранной кнопки */
-.movie-btn.selected .btn {
-    background: var(--tg-theme-link-color, #e3f2fd);
-    color: var(--tg-theme-text-color, #333);
+.movie-btn.selected {
+    background: #e3f2fd;
     transform: scale(1.05);
+    border: 3px solid #2cab37;
+}
+
+#hachiko-btn {
+    border-left: 6px solid #ff6b6b;
+}
+
+#titanic-btn {
+    border-left: 6px solid #4ecdc4;
 }
